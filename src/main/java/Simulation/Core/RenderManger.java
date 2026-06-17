@@ -15,8 +15,8 @@ public class RenderManger {
     public RenderManger(int height, int width, Simulation.UI.Mechanics.ProjectileMotion projectileMotionUI, ProjectileMotion projectileMotion) throws Exception{
         transformation =  new Transformation();
         shaderProgram = new ShaderProgram();
-        shaderProgram.createVertexShader(Utils.readFile("D:\\Physics simulation\\physics.Simulation\\src\\main\\resources\\vertexShader\\vert.vert"));
-        shaderProgram.createFragShader(Utils.readFile("D:\\Physics simulation\\physics.Simulation\\src\\main\\resources\\FragmentShader\\Frag.frag"));
+        shaderProgram.createVertexShader(Utils.readFile("vertexShader\\vert.vert"));
+        shaderProgram.createFragShader(Utils.readFile("FragmentShader\\Frag.frag"));
         shaderProgram.link();
         shaderProgram.createUniforms("projectionMatrix");
         shaderProgram.createUniforms("view");

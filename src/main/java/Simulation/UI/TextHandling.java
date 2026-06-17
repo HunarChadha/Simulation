@@ -4,7 +4,11 @@ import Simulation.Core.Entity;
 import Simulation.Core.Mesh;
 import org.joml.Vector3f;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -28,7 +32,7 @@ public class TextHandling {
     };
 
     public TextHandling(){
-        ParseList("D:\\Physics simulation\\physics.Simulation\\src\\main\\resources\\textureAtlas.fnt");
+        ParseList("textureAtlas.fnt");
         init();
     }
     public void init(){
@@ -124,17 +128,23 @@ public class TextHandling {
         }
     }
     public void ParseList(String filePath) {
-        try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
+        String normalizedPath = filePath.startsWith("/") ? filePath : "/" + filePath;
+        InputStream is = getClass().getResourceAsStream(normalizedPath);
+        if (is == null) {
+            System.err.println("Resource not found on classpath: " + filePath);
+            return;
+        }
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+             Stream<String> lines = reader.lines()) {
             lines.forEach(line -> {
                 String[] piece = line.split(" ");
-                for(int i = 0; i<piece.length; i++){
-                    if(piece[i].length() > 2){
+                for (int i = 0; i < piece.length; i++) {
+                    if (piece[i].length() > 2) {
                         data.add(piece[i]);
                     }
                 }
             });
-
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.err.println("Error reading the file: " + e.getMessage());
             e.printStackTrace();
         }

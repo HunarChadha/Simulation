@@ -17,8 +17,8 @@ public class Grid {
     public Grid(int width, int height) throws  Exception{
         shaderProgram = new ShaderProgram();
         transformation = new Transformation();
-        shaderProgram.createVertexShader(Utils.readFile("D:\\Physics simulation\\physics.Simulation\\src\\main\\resources\\vertexShader\\Grid.vert"));
-        shaderProgram.createFragShader(Utils.readFile("D:\\Physics simulation\\physics.Simulation\\src\\main\\resources\\FragmentShader\\Grid.frag"));
+        shaderProgram.createVertexShader(Utils.readFile("vertexShader\\Grid.vert"));
+        shaderProgram.createFragShader(Utils.readFile("FragmentShader\\Grid.frag"));
         shaderProgram.link();
         shaderProgram.createUniforms("projection");
         shaderProgram.createUniforms("view");

@@ -27,7 +27,7 @@ public class MainMenu {
         this.scale = scale;
         setEntity();
         texture  = new Texture();
-        BufferedImage image = texture.loadImage("D:\\Physics simulation\\physics.Simulation\\src\\main\\resources\\textureAtlas_0.png");
+        BufferedImage image = texture.loadImage("textureAtlas_0.png");
         id = texture.loadTexture(image);
     }
     public void setEntity(){

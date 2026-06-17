@@ -248,10 +248,10 @@ public class ProjectileMotion {
         data.addAll(entities);
         entities = this.handling.RenderText("Z-Axis", new Vector3f(0.7f, 0.7f, 0.7f), new Vector3f(1765, 470, 0));
         data.addAll(entities);
-        entities = this.handling.RenderText("Gravity", new Vector3f(1.4f, 1.4f, 1.4f), new Vector3f(1700, 560, 0));
-        data.addAll(entities);
-        entities = this.handling.RenderText("Gravity", new Vector3f(0.7f, 0.7f, 0.7f), new Vector3f(1670, 590, 0));
-        data.addAll(entities);
+//        entities = this.handling.RenderText("Gravity", new Vector3f(1.4f, 1.4f, 1.4f), new Vector3f(1700, 560, 0));
+//        data.addAll(entities);
+//        entities = this.handling.RenderText("Gravity", new Vector3f(0.7f, 0.7f, 0.7f), new Vector3f(1670, 590, 0));
+//        data.addAll(entities);
         entities = handling.RenderText("Information", new Vector3f(1.4f, 1.4f, 1.4f), new Vector3f(10, 100, 0));
         data.addAll(entities);
         Numbers();

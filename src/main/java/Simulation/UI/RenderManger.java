@@ -25,8 +25,8 @@ public class RenderManger {
     Pendulum pendulum;
     public void createShaders() throws Exception{
         shaderProgram = new ShaderProgram();
-        shaderProgram.createVertexShader(Utils.readFile("D:\\Physics simulation\\physics.Simulation\\src\\main\\resources\\vertexShader\\MainMenu.vert"));
-        shaderProgram.createFragShader(Utils.readFile("D:\\Physics simulation\\physics.Simulation\\src\\main\\resources\\FragmentShader\\MainMenu.frag"));
+        shaderProgram.createVertexShader(Utils.readFile("vertexShader\\MainMenu.vert"));
+        shaderProgram.createFragShader(Utils.readFile("FragmentShader\\MainMenu.frag"));
         shaderProgram.link();
         shaderProgram.createUniforms("ModelMatrix");
         shaderProgram.createUniforms("orthoMatrix");

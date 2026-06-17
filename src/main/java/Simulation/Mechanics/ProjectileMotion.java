@@ -47,7 +47,7 @@ public class ProjectileMotion {
     }
     public void init(){
         Model model = new Model();
-        Mesh mesh = model.LoadModel("D:\\Physics simulation\\physics.Simulation\\src\\main\\resources\\Untitled.obj", 1, null);
+        Mesh mesh = model.LoadModel("Untitled.obj", 1, null);
         entity = new Entity(new Vector3f(1f, 1f, 1f), new Vector3f(0, 0,0), new Vector3f(0 ,0, 0), mesh, 0.0f);
     }
     public void CheckRender(Camera camera, TextHandling handling){

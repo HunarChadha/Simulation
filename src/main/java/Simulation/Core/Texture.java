@@ -6,6 +6,7 @@ import org.lwjgl.opengl.GL12;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -47,14 +48,21 @@ public class Texture {
     }
 
     public BufferedImage loadImage(String filename) {
-        try {
-            return ImageIO.read(Files.newInputStream(Paths.get(filename)));
-
+        String normalizedPath = filename.startsWith("/") ? filename : "/" + filename;
+        InputStream is = getClass().getResourceAsStream(normalizedPath);
+        if (is == null) {
+            System.out.println("Cannot find this File: " + filename);
+            return null;
+        }
+        try (InputStream stream = is) {
+            return ImageIO.read(stream);
         } catch (IOException e) {
             System.out.println("Cannot find this File");
+            e.printStackTrace();
+            return null;
         }
-        return null;
     }
+
 
     public void cleanUp(int textID) {
         glDeleteTextures(textID);
